@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: safepay-ai-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt && python -m backend.ml.train
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT --workers 1 --no-proxy-headers --no-access-log
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CORS_ORIGINS
+        sync: false
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "120"

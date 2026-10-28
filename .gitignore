@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+.env
+.env.local
+.env.*
+!.env.example
+*.log
+backend/artifacts/*.joblib
+backend/artifacts/*.json
+!backend/artifacts/model.joblib
+!backend/artifacts/metrics.json
+reports/*.json
+!reports/.gitkeep
+
+# Local credentials and tool state
+.aws/
+.codex/
+*.pem
+*.key

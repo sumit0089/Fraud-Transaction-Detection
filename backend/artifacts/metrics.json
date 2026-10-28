@@ -1,0 +1,47 @@
+{
+  "model_version": "synthetic-logreg-v1-1c00b747b8fb",
+  "dataset_kind": "synthetic",
+  "dataset_source": "backend/ml/train.py:generate_data (seed 42)",
+  "rows": 16000,
+  "fraud_fraction": 0.1031875,
+  "split": {
+    "train": 9600,
+    "validation": 3200,
+    "test": 3200
+  },
+  "features": [
+    "amount",
+    "hour",
+    "transactions_24h",
+    "distance_km",
+    "account_age_days",
+    "international",
+    "new_device",
+    "merchant_category"
+  ],
+  "threshold": 0.6799999999999999,
+  "sklearn_version": "1.9.1",
+  "metrics": {
+    "precision": 0.3632075471698113,
+    "recall": 0.4666666666666667,
+    "f1": 0.40848806366047746,
+    "roc_auc": 0.784851652412628,
+    "average_precision": 0.40398514516703254,
+    "confusion_matrix": [
+      [
+        2600,
+        270
+      ],
+      [
+        176,
+        154
+      ]
+    ]
+  },
+  "limitations": [
+    "Synthetic data only; not validated on real financial transactions.",
+    "Class-weighted probabilities are not calibrated real-world fraud probabilities.",
+    "Indicators describe input conditions, not causal explanations.",
+    "Random stratified splits measure this simulator, not temporal generalization."
+  ]
+}
