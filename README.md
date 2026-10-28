@@ -187,3 +187,8 @@ Artifacts are trusted executable serialization: never load user-supplied joblib 
 - 429: stop repeated submissions, wait one minute; on a proxy, shared limits are possible.
 - History disappeared: intentional tab-only storage; reanalyze fictional examples.
 - Network sandbox prevents local socket access: run the local servers/tests in an approved terminal outside that sandbox; no security settings need to be disabled.
+
+## Original GitHub repository introduction
+
+### Fraud-Transaction-Detection
+AI-powered fraud transaction detection and cybersecurity analytics platform built with React, FastAPI, and Machine Learning. Features real-time transaction risk scoring, CSV batch analysis, interactive analytics, and prediction history.
