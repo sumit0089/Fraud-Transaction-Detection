@@ -14,6 +14,7 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 from starlette.concurrency import run_in_threadpool
 from backend.app.model import ModelService
+from backend.app.chat import ChatInput, ChatService
 from backend.app.schema import Batch, BatchResponse, FEATURES, PredictionResponse, Transaction
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message)s")
@@ -81,6 +82,11 @@ def create_app(model_dir=None, rate_limit=None):
         app.state.model = None
 
     app = FastAPI(title="SafePay AI", version="1.0.0", lifespan=lifespan)
+    chat_service = ChatService()
+
+    @app.post("/api/chat")
+    async def chat(payload: ChatInput):
+        return await chat_service.answer(payload.message)
     app.add_middleware(RequestLimits, limit=rate_limit if rate_limit is not None else int(os.getenv("RATE_LIMIT_PER_MINUTE", "120")))
 
     @app.middleware("http")
@@ -110,7 +116,8 @@ def create_app(model_dir=None, rate_limit=None):
     async def invalid_input(request, exc):
         # Pydantic errors can contain the submitted input; omit it.
         fields = [".".join(map(str, e["loc"])) for e in exc.errors()]
-        return JSONResponse({"error": {"code": "invalid_input", "message": "Invalid or missing transaction fields.", "fields": fields}}, status_code=422)
+        message = "Invalid chat message (1 to 1200 characters required)." if request.url.path == "/api/chat" else "Invalid or missing transaction fields."
+        return JSONResponse({"error": {"code": "invalid_input", "message": message, "fields": fields}}, status_code=422)
 
     @app.exception_handler(HTTPException)
     async def http_error(request, exc):

@@ -73,7 +73,7 @@ Render and Vercel are prepared deployment targets, not confirmed live services. 
 | `frontend/src/App.jsx` | Dashboard, analysis, session history, metrics, health, model/about/help |
 | `frontend/src/api.js` | Fetch wrapper, configured URL, timeout, errors, timing |
 | `frontend/src/RiskDistribution.jsx` | Lazy-loaded score distribution chart |
-| `frontend/src/styles.css` | Responsive navy/teal theme, keyboard focus, reduced-motion rules |
+| `frontend/src/styles.css` | Responsive ChaiUI dark/light theme, keyboard focus, reduced-motion rules |
 | `frontend/src/*.test.*` | Form integration and API transport tests |
 | `frontend/package-lock.json` | Resolved frontend dependencies for `npm ci` |
 | `render.yaml` | Root-based Python build, offline training, Uvicorn start, health check |

@@ -2,11 +2,15 @@
 
 **AI-Powered Fraud Transaction Detection and Cybersecurity Analytics**
 
-A React/Vite dashboard backed by FastAPI and an actual trained scikit-learn pipeline. Analyze fictional transactions individually or in CSV/JSON batches, inspect model scores and timings, and explore held-out evaluation metrics.
+A React/Vite dashboard styled with the official ChaiUI registry, backed by FastAPI and an actual trained scikit-learn pipeline. Analyze fictional transactions individually or in CSV/JSON batches, inspect model scores and timings, and explore held-out evaluation metrics.
 
 **Educational synthetic-data model only.** No real financial dataset was downloaded or used. All training records and labels come from the documented local generator. A fraud label means review is suggested by this simulator-trained model, not proof of criminal activity. Scores are not calibrated real-world probabilities. This application has not been deployed or certified secure/compliant.
 
-![SafePay AI dashboard showing four actual synthetic-model assessments from local verification](reports/safepay-dashboard.png)
+![SafePay AI ChaiUI dashboard showing actual synthetic-model assessments from local verification](reports/safepay-chaiui-dark.png)
+
+The UI supports dark/light themes, locally hosted fonts, responsive layouts, and a confirmation before clearing session history. See [CHAIUI_RESTYLE.md](CHAIUI_RESTYLE.md) for the component inventory and verification notes.
+
+An optional bottom-right general-purpose assistant answers questions via a backend Groq integration. See [CHAT_SETUP.md](CHAT_SETUP.md) to configure a replacement API key securely, configure the chat model, and understand usage limits and privacy. No key is bundled in the frontend. For local chat testing with the ignored root `.env`, start the API using `& .\backend\start-local.ps1`.
 
 ## Quick start (Windows PowerShell)
 

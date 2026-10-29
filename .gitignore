@@ -242,3 +242,7 @@ reports/*.json
 .codex/
 *.pem
 *.key
+
+# Keep frontend source helpers despite the Python template's lib/ exclusion.
+!frontend/src/lib/
+!frontend/src/lib/**
